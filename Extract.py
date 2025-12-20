@@ -1,21 +1,5 @@
 #!/usr/bin/env python3
-"""
-Convert various tabular file formats to CSV.
-
-Supported:
-- .csv, .tsv, .txt (delimited)
-- .xlsx (openpyxl), .xls (xlrd)
-- .parquet (pyarrow/fastparquet)
-- .feather (pyarrow)
-- .json (array of records or JSON Lines)
-- .html (tables)
-- .xml (simple row/column)
-Optionally: .orc if pyarrow supports it.
-
-Usage:
-    python tabular_to_csv.py --input <path> --out <dir> [--recursive] [--pattern "*.xlsx"] [--encoding "utf-8"] [--chunksize 100000]
-"""
-
+"""Convert various tabular file formats to CSV."""
 #!/usr/bin/env python3
 import argparse
 import csv
