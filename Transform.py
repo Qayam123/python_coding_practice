@@ -1,6 +1,9 @@
-class Transform:
-    def __init__(self, df):
-        self.df = df
+from Extract import *
+
+class Transform(Extract):
+    def __init__(self, source, destination):
+        super().__init__(source, destination)
+        self.df = self.convert()
 
     def data_cleaning(self):
         shape1 = self.df.shape[0]
