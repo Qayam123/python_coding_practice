@@ -66,3 +66,42 @@ def ftest(lst1,lst2):
             flist.append(i)
     return flist 
 print(ftest(list1,list2))
+
+'''Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if:'''
+def is_valid(s: str) -> bool:
+    stack = []
+    matching = {')': '(', ']': '[', '}': '{'}
+
+    for ch in s:
+        if ch in matching.values():        # opening bracket
+            stack.append(ch)
+        elif ch in matching:               # closing bracket
+            if not stack or stack[-1] != matching[ch]:
+                return False
+            stack.pop()
+        else:
+            return False
+
+    return len(stack) == 0
+
+
+# Examples
+print(is_valid("(999)"))  
+
+'''Write a function to compare two lists and return True if they are identical (same elements in the same order), otherwise return False. If the lists have different lengths, print a message indicating that they are of different structure.'''  
+def ftest(lst1: list, lst2: list) -> bool:
+    # First, ensure lengths are the same
+    if len(lst1) != len(lst2):
+        print("Two lists are of different structure")
+        return False
+
+    # Compare element by element
+    for i in range(len(lst1)):
+        if lst1[i] != lst2[i]:
+            return False
+    return True
+
+# Test
+p = [1, 2, 3]
+q = [1, 2, 3]
+print(ftest(p, q))
