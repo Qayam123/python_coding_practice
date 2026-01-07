@@ -105,3 +105,19 @@ def ftest(lst1: list, lst2: list) -> bool:
 p = [1, 2, 3]
 q = [1, 2, 3]
 print(ftest(p, q))
+"Write apython function to split the texts into equal sized chunks"
+def fixed_chunking(text, chunk_size):
+    return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
+def overlapping_chunking1(text,chunk_size=5,overlap=1):
+    words=text.split()
+    chunks=["".join(words[i:i + chunk_size]) for i in range(0, len(words), chunk_size-overlap)]
+    return chunks
+def overlapping_chunking2(text,chunk_size=10,overlap=5):
+    words=text.split()
+    chunks=[text[i:i + chunk_size] for i in range(0, len(text), chunk_size-overlap)]
+    return chunks 
+
+text="To create a scheduled Batch Transform job in Amazon SageMaker that runs every day at a specific time, you need to combine SageMaker Batch Transform with Amazon EventBridge (or CloudWatch Events) for scheduling. Here’s the step-by-step approach:"
+#print(fixed_chunking(text,chunk_size))
+print(overlapping_chunking1(text))
+print(overlapping_chunking2(text))
